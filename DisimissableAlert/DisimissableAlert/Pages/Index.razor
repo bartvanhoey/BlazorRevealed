@@ -1,0 +1,35 @@
+﻿@page "/"
+
+
+<DismissableAlert @ref="alert" @bind-Show="@ShowAlert">
+    <span class="oi oi-check mr-2" aria-hidden="true"></span>
+    <strong>Blazor is soo cool!</strong>
+</DismissableAlert>
+
+
+<Timer TimeInSeconds="5" Tick="@(() => alert.Dismiss())" />
+
+@code {
+    public DismissableAlertBase alert;
+
+    private bool _showAlert = true;
+
+    public bool ShowAlert
+    {
+        get => _showAlert;
+        set
+        {
+            if (_showAlert != value)
+            {
+                _showAlert = value;
+                StateHasChanged();
+            }
+        }
+    }
+
+    public void DismissAlert()
+    {
+        alert.Dismiss();
+    }
+
+}

@@ -1,0 +1,13 @@
+﻿@inherits DismissableAlertBase
+
+@if (Show)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @ChildContent
+        <button type="button" class="close" aria-label="Close" data-dismiss="alert"
+                @onclick="@Dismiss">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+}
